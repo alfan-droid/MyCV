@@ -16,7 +16,7 @@ const projects = [
     image: FiveAlignImage,
     description: 'A structured daily ritual designed to synchronize inner peace and productivity through five mindful pauses in a day.',
     tech: ['Iman','Taqwa'],
-    link: ''
+    link: 'https://www.google.com/search?q=sholat&oq=sholat&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORixAxiABDIPCAEQABhDGLEDGIAEGIoFMgoIAhAAGLEDGIAEMg0IAxAAGLEDGIAEGIoFMgoIBBAAGLEDGIAEMgoIBRAAGLEDGIAEMgYIBhBFGD0yBggHEEUYPNIBCDM3NzFqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8'
   }
 ];
 </script>
