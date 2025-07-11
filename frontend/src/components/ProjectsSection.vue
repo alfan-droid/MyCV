@@ -1,24 +1,34 @@
 <script setup>
+// import SectionTitle from './SectionTitle.vue';
+// import kedaikopiImage from '@/assets/kedaikopi.jpg';
+// import FiveAlignImage from '@/assets/FiveAlign.jpg';
+// const projects = [
+//   // Proyek Baru Ditambahkan
+//   { 
+//     title: 'Website Kedai Kopi Kayu', 
+//     image: kedaikopiImage,
+//     description: 'Website company profile untuk kedai kopi dengan desain modern dan informasi produk.', 
+//     tech: ['HTML5', 'CSS3', 'JavaScript'], 
+//     link: 'https://kedaikopikayu.my.id/' 
+//   },
+//   {
+//     title: 'Five Align',
+//     image: FiveAlignImage,
+//     description: 'A structured daily ritual designed to synchronize inner peace and productivity through five mindful pauses in a day.',
+//     tech: ['Iman','Taqwa'],
+//     link: 'https://www.google.com/search?q=sholat&oq=sholat&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORixAxiABDIPCAEQABhDGLEDGIAEGIoFMgoIAhAAGLEDGIAEMg0IAxAAGLEDGIAEGIoFMgoIBBAAGLEDGIAEMgoIBRAAGLEDGIAEMgYIBhBFGD0yBggHEEUYPNIBCDM3NzFqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8'
+//   }
+// ];
+
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 import SectionTitle from './SectionTitle.vue';
-import kedaikopiImage from '@/assets/kedaikopi.jpg';
-import FiveAlignImage from '@/assets/FiveAlign.jpg';
-const projects = [
-  // Proyek Baru Ditambahkan
-  { 
-    title: 'Website Kedai Kopi Kayu', 
-    image: kedaikopiImage,
-    description: 'Website company profile untuk kedai kopi dengan desain modern dan informasi produk.', 
-    tech: ['HTML5', 'CSS3', 'JavaScript'], 
-    link: 'https://kedaikopikayu.my.id/' 
-  },
-  {
-    title: 'Five Align',
-    image: FiveAlignImage,
-    description: 'A structured daily ritual designed to synchronize inner peace and productivity through five mindful pauses in a day.',
-    tech: ['Iman','Taqwa'],
-    link: 'https://www.google.com/search?q=sholat&oq=sholat&gs_lcrp=EgZjaHJvbWUyDAgAEEUYORixAxiABDIPCAEQABhDGLEDGIAEGIoFMgoIAhAAGLEDGIAEMg0IAxAAGLEDGIAEGIoFMgoIBBAAGLEDGIAEMgoIBRAAGLEDGIAEMgYIBhBFGD0yBggHEEUYPNIBCDM3NzFqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8'
-  }
-];
+const projects = ref([]);
+onMounted(async () => {
+try { const response = await axios.get('http://localhost:3000/api/projects'); projects.value =
+response.data; } catch (error) { console.error(error); }
+});
+
 </script>
 <template>
   <section id="proyek" class="py-20 bg-slate-800">

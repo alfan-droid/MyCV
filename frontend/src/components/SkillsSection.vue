@@ -1,11 +1,21 @@
 <script setup>
+// import SectionTitle from './SectionTitle.vue';
+// const skills = [
+//   { name: 'Vue.js', level: 'Bisa' }, { name: 'JavaScript', level: 'Bisa Mati' },
+//   { name: 'Tailwind CSS', level: 'Ya Allah' }, { name: 'Node.js', level: 'Udah Bang' },
+//   { name: 'Express.js', level: 'Pengen Pulang' }, { name: 'PostgreSQL', level: 'Ckptw' },
+//   { name: 'Git & GitHub', level: 'Apa ini' }, { name: 'HTML5 & CSS3', level: 'Mahir' },
+// ];
+
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
 import SectionTitle from './SectionTitle.vue';
-const skills = [
-  { name: 'Vue.js', level: 'Bisa' }, { name: 'JavaScript', level: 'Bisa Mati' },
-  { name: 'Tailwind CSS', level: 'Ya Allah' }, { name: 'Node.js', level: 'Udah Bang' },
-  { name: 'Express.js', level: 'Pengen Pulang' }, { name: 'PostgreSQL', level: 'Ckptw' },
-  { name: 'Git & GitHub', level: 'Apa ini' }, { name: 'HTML5 & CSS3', level: 'Mahir' },
-];
+const skills = ref([]);
+onMounted(async () => {
+try { const response = await axios.get('http://localhost:3000/api/skills'); skills.value = response.data;
+} catch (error) { console.error(error); }
+});
+
 </script>
 <template>
   <section id="skill" class="py-20 bg-slate-900">
